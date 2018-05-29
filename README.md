@@ -1,6 +1,7 @@
 # Aplicação financeira REST
 
 POST DE LANCAMENTO.
+<pre>
 {
   "descricao": "lancamento 1",
   "dataVencimento": "2018-05-22",
@@ -13,3 +14,4 @@ POST DE LANCAMENTO.
     "codigo": 1
   }
 }
+</pre>
