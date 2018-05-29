@@ -70,7 +70,12 @@
 			<artifactId>jackson-datatype-jsr310</artifactId>
 		</dependency>
 
-
+		<!-- Dependencia para acusar a causa raiz do problema -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
+		</dependency>
 	</dependencies>
 
 	<build>
