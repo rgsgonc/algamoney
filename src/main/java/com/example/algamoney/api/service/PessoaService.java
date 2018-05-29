@@ -13,18 +13,29 @@ public class PessoaService {
 
 	@Autowired
 	private PessoaRepository pessoaRepository;
-	
+
 	public Pessoa atualizar(Long codigo, Pessoa pessoa) {
-Pessoa pessoaSalva = pessoaRepository.findOne(codigo);
-		
-		if(pessoaSalva == null) {
-			throw new EmptyResultDataAccessException(1);
-		}
-		
-		//fazendo a copia da pessoa que esta na base para a pessoaSalva.
-		//"codigo" esse é o parametro que ignora a propriedade pois eu ja tenho a mesma.
-		BeanUtils.copyProperties(pessoa, pessoaSalva,"codigo");
+		Pessoa pessoaSalva = buscarPessoaPeloCodigo(codigo);
+		// fazendo a copia da pessoa que esta na base para a pessoaSalva.
+		// "codigo" esse é o parametro que ignora a propriedade pois eu ja tenho a
+		// mesma.
+		BeanUtils.copyProperties(pessoa, pessoaSalva, "codigo");
 		return pessoaRepository.save(pessoaSalva);
 	}
-	
+
+	public void atualizarPropriedadeAtivo(Long codigo, Boolean ativo) {
+		Pessoa pessoaSalva = buscarPessoaPeloCodigo(codigo);
+		pessoaSalva.setAtivo(ativo);
+		pessoaRepository.save(pessoaSalva);
+	}
+
+	private Pessoa buscarPessoaPeloCodigo(Long codigo) {
+		Pessoa pessoaSalva = pessoaRepository.findOne(codigo);
+
+		if (pessoaSalva == null) {
+			throw new EmptyResultDataAccessException(1);
+		}
+		return pessoaSalva;
+	}
+
 }
