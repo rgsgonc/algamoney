@@ -1,1 +1,1 @@
-# algamoney
+# Aplicação financeira REST
