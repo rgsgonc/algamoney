@@ -77,9 +77,16 @@
 			<version>3.4</version>
 		</dependency>
 		
+		<!-- Cria as classes sozinhas para nao precisar digitar o atributo na hora de criar o filtro -->		
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-jpamodelgen</artifactId>
+		</dependency>
+		
+		<!-- adicionando dependencia para a autenticacao -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 	</dependencies>
 
